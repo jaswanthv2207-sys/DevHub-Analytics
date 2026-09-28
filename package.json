@@ -5,7 +5,8 @@
   "description": "DevHub — GitHub developer & repository analytics platform (full-stack).",
   "workspaces": [
     "server",
-    "client"
+    "client",
+    "tools"
   ],
   "engines": {
     "node": ">=24"
