@@ -5,11 +5,18 @@
 </p>
 
 <p align="center">
+  <a href="https://devhub-analytics.onrender.com"><strong>🟢 Live demo</strong></a> ·
   <a href="#-quick-start">Quick start</a> ·
   <a href="#-features">Features</a> ·
   <a href="#-rest-api">REST API</a> ·
   <a href="#-architecture">Architecture</a> ·
   <a href="#-deployment">Deployment</a>
+</p>
+
+<p align="center">
+  <a href="https://devhub-analytics.onrender.com"><img src="https://img.shields.io/badge/deployed-DevHub%20on%20Render-46e3b1?style=flat-square&logo=render" alt="Deployed on Render"></a>
+  <img src="https://img.shields.io/badge/Lighthouse-100%2F100%2F100%2F100-46e3b1?style=flat-square&logo=googlelighthouse&logoColor=white" alt="Lighthouse 100s">
+  <img src="https://img.shields.io/badge/CI-GitHub%20Actions-passing?style=flat-square&logo=githubactions&logoColor=white" alt="CI passing">
 </p>
 
 ---
@@ -320,13 +327,18 @@ Lighthouse on the landing and repository pages: **Accessibility 100 · Best Prac
 
 ## ☁️ Deployment
 
+**🟢 Live: [https://devhub-analytics.onrender.com](https://devhub-analytics.onrender.com)** —
+deployed from this repository with the [Render Blueprint](render.yaml) at the repo root
+(`build: npm ci --include=dev && npm run build`, `start: npm start`,
+health check `/api/health`). Pushing to `main` auto-deploys.
+
 The production build is a **single service**: Express serves `client/dist` with SPA
 fallback, so one web service is enough.
 
 **Render / Railway / Fly.io**
 
 ```bash
-build:  npm install && npm run build
+build:  npm ci --include=dev && npm run build   # tsc/vite/tailwind are devDependencies
 start:  npm start
 ```
 
