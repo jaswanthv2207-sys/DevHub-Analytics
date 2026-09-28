@@ -1,0 +1,32 @@
+# Render blueprint — one web service that serves both the API and the built SPA.
+# https://render.com/docs/blueprint-spec
+services:
+  - type: web
+    name: devhub-analytics
+    runtime: node
+    plan: free
+    region: oregon
+    repo: https://github.com/jaswanthv2207-sys/DevHub-Analytics
+    branch: main
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      # Long random string; Render generates one on first apply.
+      - key: JWT_SECRET
+        generateValue: true
+      # Optional but strongly recommended — raises the quota 60 → 5000 req/h.
+      - key: GITHUB_TOKEN
+        sync: false
+      # Public URL of this service (set after the first deploy).
+      - key: APP_URL
+        sync: false
+      - key: TRUST_PROXY
+        value: true
+      # SQLite lives on the container filesystem: persists for the lifetime of
+      # the instance and is rebuilt on every deploy (fine for a demo).
+      - key: DATABASE_PATH
+        value: /opt/render/project/src/server/data/devhub.db
