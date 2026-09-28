@@ -8,7 +8,9 @@ services:
     region: oregon
     repo: https://github.com/jaswanthv2207-sys/DevHub-Analytics
     branch: main
-    buildCommand: npm install && npm run build
+    # NODE_ENV=production would make npm skip devDependencies, but tsc/vite/
+    # tailwind live there — so install everything for the build step.
+    buildCommand: npm ci --include=dev && npm run build
     startCommand: npm start
     healthCheckPath: /api/health
     autoDeploy: true
