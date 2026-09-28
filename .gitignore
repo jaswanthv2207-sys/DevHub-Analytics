@@ -27,12 +27,12 @@ npm-debug.log*
 .cache/
 coverage/
 
+# Generated demo frames (docs/demo.gif + docs/demo.mp4 are committed)
+tools/.frames/
+
 # Editors / OS
 .DS_Store
 .idea/
 .vscode/*
 !.vscode/extensions.json
 *.swp
-
-# Media artifacts
-*.mp4
