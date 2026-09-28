@@ -24,7 +24,7 @@ export function StatTile({ label, value, sub, icon, tone = 'indigo', className }
   return (
     <div
       className={cn(
-        'glass card lit relative overflow-hidden p-4 transition-transform duration-300 hover:-translate-y-0.5',
+        'glass card lit relative flex flex-col justify-center overflow-hidden p-4 transition-transform duration-300 hover:-translate-y-0.5',
         className,
       )}
     >
@@ -37,7 +37,7 @@ export function StatTile({ label, value, sub, icon, tone = 'indigo', className }
       />
       <div className="relative flex items-start justify-between gap-3">
         <div className="min-w-0">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-500">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.1em] text-ink-500 sm:text-[11px] sm:tracking-[0.14em]">
             {label}
           </p>
           <p className="num mt-1.5 text-2xl font-bold leading-none text-ink-100">{value}</p>
@@ -46,7 +46,7 @@ export function StatTile({ label, value, sub, icon, tone = 'indigo', className }
         {icon ? (
           <span
             className={cn(
-              'grid h-9 w-9 shrink-0 place-items-center rounded-xl border bg-gradient-to-br to-transparent text-sm',
+              'grid h-8 w-8 shrink-0 place-items-center rounded-xl border bg-gradient-to-br to-transparent text-sm sm:h-9 sm:w-9',
               TONES[tone],
             )}
             aria-hidden

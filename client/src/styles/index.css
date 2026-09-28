@@ -162,6 +162,15 @@
     overflow-x: hidden;
   }
 
+  /* Grid children get an automatic min-content floor, so a wide chart, a heatmap
+     or an unbroken title can stretch a column past the viewport — the overflow is
+     then silently clipped on phones. Force children down to 0 so the inner
+     `overflow-x-auto` wrappers do the scrolling instead. (Base layer: any `min-w-*`
+     utility still wins.) */
+  .grid > * {
+    min-width: 0;
+  }
+
   ::selection {
     background: rgb(129 140 248 / 40%);
     color: #fff;
