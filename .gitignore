@@ -1,0 +1,38 @@
+# Dependencies
+node_modules/
+.npm
+
+# Build output
+dist/
+build/
+client/dist/
+server/dist/
+
+# Environment (never commit secrets)
+.env
+.env.local
+.env.*.local
+
+# Database (local persistence layer)
+server/data/*.db
+server/data/*.db-journal
+server/data/*.db-wal
+server/data/*.db-shm
+*.sqlite
+*.sqlite3
+
+# Logs & caches
+*.log
+npm-debug.log*
+.cache/
+coverage/
+
+# Editors / OS
+.DS_Store
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.swp
+
+# Media artifacts
+*.mp4
